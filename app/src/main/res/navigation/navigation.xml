@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/nav_shop">
+
+    <fragment
+        android:id="@+id/nav_shop"
+        android:name="com.example.shopway.ShopListFragment"
+        android:label="@string/title_ShopList"
+        tools:layout="@layout/fragment_shop_list"
+        />
+
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.example.shopway.ShoppingCart"
+        android:label="@string/title_Cart"
+        tools:layout="@layout/fragment_shopping_cart"
+        />
+
+</navigation>

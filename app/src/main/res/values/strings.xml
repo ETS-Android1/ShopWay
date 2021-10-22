@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ShopWay</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_ShopList">Shop List</string>
+    <string name="title_Cart">Shopping Cart</string>
+</resources>
