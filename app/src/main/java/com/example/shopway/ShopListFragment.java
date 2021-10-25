@@ -3,62 +3,52 @@ package com.example.shopway;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ShopListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ShopListFragment extends Fragment {
+import com.example.shopway.model.Shop;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class ShopListFragment extends Fragment implements ShopAdapter.OnListItemClickListener {
 
-    public ShopListFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShopListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ShopListFragment newInstance(String param1, String param2) {
-        ShopListFragment fragment = new ShopListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private ShopListViewModel viewModel;
+    ShopAdapter adapter;
+    RecyclerView shopRecyclerList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        viewModel = new ViewModelProvider(this).get(ShopListViewModel.class);
+        ArrayList<Shop> shops = viewModel.getShops().getValue();
+        adapter = new ShopAdapter(shops, this);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_shop_list, container, false);
+
+        //Line below might make a problem -_0_- definitely makes a problem. Moving it in the onCreate method doesn't make a difference
+        shopRecyclerList = view.findViewById(R.id.shopsRecycler);
+        shopRecyclerList.hasFixedSize();
+        shopRecyclerList.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+
+        shopRecyclerList.setAdapter(adapter);
+
+        return view;
+    }
+
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+
     }
 }
