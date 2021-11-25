@@ -18,6 +18,7 @@
             <item
                 android:title="Log Out"
                 android:id="@+id/logOutItem"
+                android:onClick="signOut"
                 />
         </menu>
     </item>

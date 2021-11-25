@@ -1,9 +1,10 @@
-package com.example.shopway;
+package com.example.shopway.ui;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.shopway.R;
 import com.example.shopway.model.Shop;
 
 import java.util.ArrayList;
@@ -36,12 +38,9 @@ public class ShopListFragment extends Fragment implements ShopAdapter.OnListItem
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_list, container, false);
 
-        //Line below might make a problem -_0_- definitely makes a problem. Moving it in the onCreate method doesn't make a difference
         shopRecyclerList = view.findViewById(R.id.shopsRecycler);
         shopRecyclerList.hasFixedSize();
         shopRecyclerList.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-
         shopRecyclerList.setAdapter(adapter);
 
         return view;
@@ -49,6 +48,43 @@ public class ShopListFragment extends Fragment implements ShopAdapter.OnListItem
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
+
+        Bundle bundle = new Bundle();
+
+        if(clickedItemIndex == 0)
+        {
+           bundle.putInt("shopCode", 0);
+        }
+        else if(clickedItemIndex == 1)
+        {
+
+        }
+        else if(clickedItemIndex == 2)
+        {
+
+        }
+        else if(clickedItemIndex == 3)
+        {
+
+        }
+        else if(clickedItemIndex == 4)
+        {
+
+        }
+        else if(clickedItemIndex == 5)
+        {
+
+        }
+        else if(clickedItemIndex == 6)
+        {
+
+        }
+        else if(clickedItemIndex == 7)
+        {
+           // bundle.putInt("shopCode", 7);
+        }
+
+        Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_items, bundle);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.shopway;
+package com.example.shopway.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.shopway.R;
 import com.example.shopway.model.Shop;
 
 import java.util.ArrayList;

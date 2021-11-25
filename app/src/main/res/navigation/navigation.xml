@@ -7,16 +7,27 @@
 
     <fragment
         android:id="@+id/nav_shop"
-        android:name="com.example.shopway.ShopListFragment"
+        android:name="com.example.shopway.ui.ShopListFragment"
         android:label="@string/title_ShopList"
         tools:layout="@layout/fragment_shop_list"
-        />
+        >
+        <action
+            android:id="@+id/action_nav_shop_to_nav_items"
+            app:destination="@id/nav_items" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_cart"
-        android:name="com.example.shopway.ShoppingCart"
+        android:name="com.example.shopway.ui.ShoppingCart"
         android:label="@string/title_Cart"
         tools:layout="@layout/fragment_shopping_cart"
+        />
+
+    <fragment
+        android:id="@+id/nav_items"
+        android:name="com.example.shopway.ui.ShopItemsFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_shop_items"
         />
 
 </navigation>
