@@ -26,14 +26,12 @@ public class ShopDAO {
     {
         shops = new MutableLiveData<>();
         ArrayList<Shop> newList = new ArrayList<>();
-        newList.add(new Shop("Netto", R.drawable.s_netto));
-        newList.add(new Shop("Bilka", R.drawable.s_bilka));
-        newList.add(new Shop("Aldi", R.drawable.s_aldi));
-        newList.add(new Shop("Meny", R.drawable.s_meny));
-        newList.add(new Shop("Løvbjerg", R.drawable.s_lovbjerg));
-        newList.add(new Shop("Rema1000", R.drawable.s_rema));
-        newList.add(new Shop("Lidl", R.drawable.s_lidl));
-        newList.add(new Shop("Fakta", R.drawable.s_fakta));
+        newList.add(new Shop("Netto", R.drawable.s_netto, "Horsens"));
+        newList.add(new Shop("Bilka", R.drawable.s_bilka, "Horsens"));
+        newList.add(new Shop("Løvbjerg", R.drawable.s_lovbjerg, "Horsens"));
+        newList.add(new Shop("Rema1000", R.drawable.s_rema, "Horsens"));
+        newList.add(new Shop("Lidl", R.drawable.s_lidl, "Horsens"));
+        newList.add(new Shop("Fakta", R.drawable.s_fakta, "Horsens"));
 
         shops.setValue(newList);
     }

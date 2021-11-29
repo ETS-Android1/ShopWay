@@ -47,17 +47,12 @@ public class ItemDAO {
 
     }
 
-    public void setItemsList(int code)
-    {
-
-    }
-
     public LiveData<ArrayList<Item>> getItems(int code)
     {
         if(code == 0)
         {
             items.setValue(nettoItems);
-        } else if(code == 7)
+        } else if(code == 5)
         {
             items.setValue(faktaItems);
         }

@@ -57,31 +57,23 @@ public class ShopListFragment extends Fragment implements ShopAdapter.OnListItem
         }
         else if(clickedItemIndex == 1)
         {
-
+            bundle.putInt("shopCode", 1);
         }
         else if(clickedItemIndex == 2)
         {
-
+            bundle.putInt("shopCode", 2);
         }
         else if(clickedItemIndex == 3)
         {
-
+            bundle.putInt("shopCode", 3);
         }
         else if(clickedItemIndex == 4)
         {
-
+            bundle.putInt("shopCode", 4);
         }
         else if(clickedItemIndex == 5)
         {
-
-        }
-        else if(clickedItemIndex == 6)
-        {
-
-        }
-        else if(clickedItemIndex == 7)
-        {
-           // bundle.putInt("shopCode", 7);
+           bundle.putInt("shopCode", 5);
         }
 
         Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_items, bundle);

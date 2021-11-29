@@ -36,6 +36,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(shops.get(position).getName());
         holder.shopIcon.setImageResource(shops.get(position).getIconId());
+        holder.location.setText(shops.get(position).getLocation());
 
     }
 
@@ -48,11 +49,13 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     {
         TextView name;
         ImageView shopIcon;
+        TextView location;
 
         public ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.shopName);
             shopIcon = itemView.findViewById(R.id.shopPic);
+            location = itemView.findViewById(R.id.shopLocation);
             itemView.setOnClickListener(this);
         }
 
