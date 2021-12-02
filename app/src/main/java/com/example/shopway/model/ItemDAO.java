@@ -116,26 +116,27 @@ public class ItemDAO {
 
     public void addToCart(Item item)
     {
-        cartItems.add(item);
+        Boolean exists = false;
+        ArrayList<Item> current = cartData.getValue();
+        for(int i = 0; i < cartItems.size(); i++)
+        {
+            if(item.getIconId() == current.get(i).getIconId())
+            {
+                exists = true;
+                cartItems.get(i).incrementQuantity();
+            }
+        }
+        if(exists == false)
+        {
+            cartItems.add(item);
+        }
+        cartData.setValue(current);
     }
 
     public LiveData<ArrayList<Item>> showCartItems()
     {
         cartData.setValue(cartItems);
         return cartData;
-    }
-
-    public void addMoreToCart(Item item)
-    {
-        ArrayList<Item> current = cartData.getValue();
-        for(int i = 0; i < current.size(); i++)
-        {
-            if(item.getIconId() == current.get(i).getIconId())
-            {
-                current.get(i).incrementQuantity();
-            }
-        }
-        cartData.setValue(current);
     }
 
     public void removeFromCart(Item item)

@@ -31,11 +31,6 @@ public class CartViewModel extends AndroidViewModel {
         repository.deleteCartItem(item);
     }
 
-    public void addMore(Item item)
-    {
-        repository.addMoreToCart(item);
-    }
-
 
 }
 
