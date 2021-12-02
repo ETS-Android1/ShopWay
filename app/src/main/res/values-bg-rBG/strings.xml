@@ -21,7 +21,7 @@
     <string name="remove_snack">" е изтрита "</string>
     <string name="undo_snack">Върни</string>
     <string name="thank_order">"Благодарим за вашата поръчка! Поръчката трябва да пристигне след "</string>
-    <string name="total_cart">"Стойноста на вашата поръчка е: "</string>
+    <string name="total_cart">"Стойностtа на вашата поръчка е: "</string>
     <string name="arrive_order">Вашата поръчка пристига сега!</string>
     <string name="horsens_string">Хорсенс</string>
     <string name="netto_string">Нето</string>
