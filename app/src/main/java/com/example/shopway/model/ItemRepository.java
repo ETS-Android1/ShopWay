@@ -42,4 +42,9 @@ public class ItemRepository {
     {
         return itemDAO.showCartItems();
     }
+
+    public void addMoreToCart(Item item)
+    {
+        itemDAO.addMoreToCart(item);
+    }
 }

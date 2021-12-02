@@ -28,11 +28,16 @@ public class Item {
         return Double.toString(price);
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getQuantityString() {
+        return "" + quantity;
     }
 
     public void setQuantity() {
         this.quantity = 1;
+    }
+
+    public void incrementQuantity()
+    {
+        quantity += 1;
     }
 }

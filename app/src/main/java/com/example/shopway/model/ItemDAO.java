@@ -124,4 +124,17 @@ public class ItemDAO {
         cartData.setValue(cartItems);
         return cartData;
     }
+
+    public void addMoreToCart(Item item)
+    {
+        ArrayList<Item> current = cartData.getValue();
+        for(int i = 0; i < current.size(); i++)
+        {
+            if(item.getIconId() == current.get(i).getIconId())
+            {
+                current.get(i).incrementQuantity();
+            }
+        }
+        cartData.setValue(current);
+    }
 }

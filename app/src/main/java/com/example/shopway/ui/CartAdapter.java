@@ -3,6 +3,7 @@ package com.example.shopway.ui;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +16,11 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     final private OnListItemClickListener onListItemClickListener;
-    private ArrayList<Item> items;
+    ArrayList<Item> items;
 
-    public CartAdapter(OnListItemClickListener onListItemClickListener) {
+    public CartAdapter(ArrayList<Item> items, OnListItemClickListener onListItemClickListener) {
         this.onListItemClickListener = onListItemClickListener;
+        this.items = items;
     }
 
     public void updateData(ArrayList<Item> items)
@@ -37,39 +39,47 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(items.get(position).getName());
-        holder.quantity.setText(items.get(position).getQuantity());
+        holder.quantity.setText(items.get(position).getQuantityString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name;
         TextView quantity;
-        //Button addMore;
-        //Button remove;
+        Button addMore;
+        Button remove;
 
         public ViewHolder(View itemView)
         {
             super(itemView);
             name = itemView.findViewById(R.id.cart_item_name);
             quantity = itemView.findViewById(R.id.cart_item_quantity);
-            //addMore = itemView.findViewById(R.id.add_cart);
-            //remove = itemView.findViewById(R.id.remove_cart);
+            addMore = itemView.findViewById(R.id.add_cart);
+            remove = itemView.findViewById(R.id.remove_cart);
+
+            addMore.setOnClickListener(this);
+            remove.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            onListItemClickListener.onListItemClick(getAdapterPosition());
+            if(v.getId() == addMore.getId()) {
+                onListItemClickListener.onAddClick(getAdapterPosition());
+            } else {
+                onListItemClickListener.onRemoveClick(getAdapterPosition());
+            }
         }
     }
 
     public interface OnListItemClickListener
     {
-        void onListItemClick(int clickedItemIndex);
+        void onAddClick(int clickedItemIndex);
+        void onRemoveClick(int clickedItemIndex);
     }
 }
 

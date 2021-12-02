@@ -33,7 +33,7 @@ public class CartViewModel extends AndroidViewModel {
 
     public void addMore(Item item)
     {
-
+        repository.addMoreToCart(item);
     }
 
 
