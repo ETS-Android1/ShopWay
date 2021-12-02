@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +34,6 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
         super.onCreate(savedInstanceState);
 
 
-
     }
 
     @Override
@@ -57,6 +57,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
 
 
         emptyCart.setOnClickListener(v -> viewModel.emptyCart());
+        checkout.setOnClickListener(v -> Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.nav_order));
 
         return view;
     }

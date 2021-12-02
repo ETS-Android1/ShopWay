@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             if(user != null)
             {
                 String message = "Welcome back " + user.getDisplayName() + "!";
-                //welcome.setText(message);
             } else {
                 startLoginActivity();
             }

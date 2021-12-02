@@ -21,13 +21,24 @@
         android:name="com.example.shopway.ui.CartFragment"
         android:label="@string/title_Cart"
         tools:layout="@layout/fragment_shopping_cart"
-        />
+        >
+        <action
+            android:id="@+id/action_nav_cart_to_nav_order"
+            app:destination="@id/nav_order" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_items"
         android:name="com.example.shopway.ui.ShopItemsFragment"
         android:label="Products"
         tools:layout="@layout/fragment_shop_items"
+        />
+
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.example.shopway.ui.OrderStatusFragment"
+        android:label="Order"
+        tools:layout="@layout/fragment_order_status"
         />
 
 </navigation>
