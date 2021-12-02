@@ -18,9 +18,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     final private OnListItemClickListener onListItemClickListener;
     ArrayList<Item> items;
 
-    public CartAdapter(ArrayList<Item> items, OnListItemClickListener onListItemClickListener) {
+    public CartAdapter(OnListItemClickListener onListItemClickListener) {
         this.onListItemClickListener = onListItemClickListener;
-        this.items = items;
     }
 
     public void updateData(ArrayList<Item> items)
@@ -40,6 +39,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(items.get(position).getName());
         holder.quantity.setText(items.get(position).getQuantityString());
+
     }
 
     @Override
@@ -51,7 +51,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     {
         TextView name;
         TextView quantity;
-        Button addMore;
         Button remove;
 
         public ViewHolder(View itemView)
@@ -59,27 +58,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             super(itemView);
             name = itemView.findViewById(R.id.cart_item_name);
             quantity = itemView.findViewById(R.id.cart_item_quantity);
-            addMore = itemView.findViewById(R.id.add_cart);
             remove = itemView.findViewById(R.id.remove_cart);
-
-            addMore.setOnClickListener(this);
             remove.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if(v.getId() == addMore.getId()) {
-                onListItemClickListener.onAddClick(getAdapterPosition());
-            } else {
-                onListItemClickListener.onRemoveClick(getAdapterPosition());
-            }
+            onListItemClickListener.onListItemClick(getAdapterPosition());
         }
     }
 
     public interface OnListItemClickListener
     {
-        void onAddClick(int clickedItemIndex);
-        void onRemoveClick(int clickedItemIndex);
+       void onListItemClick(int clickedItemIndex);
     }
 }
 

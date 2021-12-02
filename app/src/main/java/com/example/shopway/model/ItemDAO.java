@@ -137,4 +137,23 @@ public class ItemDAO {
         }
         cartData.setValue(current);
     }
+
+    public void removeFromCart(Item item)
+    {
+        ArrayList<Item> current = cartData.getValue();
+        for(int i = 0; i < current.size(); i++)
+        {
+            if(item.getIconId() == current.get(i).getIconId())
+            {
+                if(current.get(i).getQuantity() > 1)
+                {
+                    current.get(i).decreaseQuantity();
+                } else
+                {
+                    current.remove(i);
+                }
+            }
+        }
+    }
+
 }

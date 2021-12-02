@@ -29,7 +29,12 @@ public class Item {
     }
 
     public String getQuantityString() {
-        return "" + quantity;
+        return "Quantity: " + quantity;
+    }
+
+    public int getQuantity()
+    {
+        return quantity;
     }
 
     public void setQuantity() {
@@ -40,4 +45,10 @@ public class Item {
     {
         quantity += 1;
     }
+
+    public void decreaseQuantity()
+    {
+        quantity -= 1;
+    }
+
 }

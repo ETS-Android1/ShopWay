@@ -32,28 +32,20 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
                              Bundle savedInstanceState) {
 
         viewModel = new ViewModelProvider(this).get(CartViewModel.class);
-        ArrayList<Item> items = viewModel.getCartItems().getValue();
-        adapter = new CartAdapter(items, this);
+        adapter = new CartAdapter(this);
+        viewModel.getCartItems().observe(getViewLifecycleOwner(), adapter::updateData);
         View view = inflater.inflate(R.layout.fragment_shopping_cart, container, false);
         itemsList = view.findViewById(R.id.cartRecycler);
         itemsList.hasFixedSize();
         itemsList.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
-       // viewModel.getCartItems().observe(getViewLifecycleOwner(), adapter::updateData);
         itemsList.setAdapter(adapter);
-
-
 
         return view;
     }
 
     @Override
-    public void onAddClick(int clickedItemIndex) {
-        viewModel.addMore(adapter.items.get(clickedItemIndex));
-    }
-
-    @Override
-    public void onRemoveClick(int clickedItemIndex) {
-
+    public void onListItemClick(int clickedItemIndex) {
+        viewModel.removeFromCart(adapter.items.get(clickedItemIndex));
+        adapter.updateData(viewModel.getCartItems().getValue());
     }
 }

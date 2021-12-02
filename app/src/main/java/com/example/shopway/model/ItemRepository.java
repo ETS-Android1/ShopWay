@@ -35,7 +35,7 @@ public class ItemRepository {
 
     public void deleteCartItem(Item item)
     {
-
+        itemDAO.removeFromCart(item);
     }
 
     public LiveData<ArrayList<Item>> showCartItems()
