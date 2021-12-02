@@ -13,20 +13,19 @@ needed items it can proceed to review the items and their price added in the car
 be able to see if the delivery is accepted and the estimated delivery time.
 
 Must have:
-* As a user I want to see list of shops nearby.
-* As a user I want to see list of items in each shop.
-* As a user I want to add items in my virtual basket.
-* As a user I want to choose the quantity of items to add in the cart.
-* As a user I want to remove items from my virtual basket.
+* As a user I want to see list of shops nearby. /Delivered
+* As a user I want to see list of items in each shop. /Delivered
+* As a user I want to add items in my virtual basket. /Delivered
+* As a user I want to choose the quantity of items to add in the cart. /Delivered
+* As a user I want to remove items from my virtual basket. /Delivered
 
 Should have:
-* As a user I want to be able to register.
-* As a user I want to be able to log in the system.
-* As a user I want to be able to log out of the system.
-* As a user I want to see if my order has been accepted by deliverer.
+* As a user I want to be able to register. /Delivered
+* As a user I want to be able to log in the system. /Delivered
+* As a user I want to be able to log out of the system. /Delivered
+* As a user I want to see how much time there is until delivery. /Delivered
 
 Could have:
-* As a user I want to contact the deliverer.
-* As a user I want to use a discount card/code when I make my order.
-* As a user I want to choose multiple supermarkets for a single order.
-* As a user I want to see the discount magazines for different shops.
+* As a user I want to see the discount magazines for different shops. /Delivered
+* As a user I want to contact the deliverer. 
+* As a user I want to use the app in Bulgarian Language.
