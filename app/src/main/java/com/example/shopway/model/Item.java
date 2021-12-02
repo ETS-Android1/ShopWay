@@ -24,8 +24,12 @@ public class Item {
         return iconId;
     }
 
-    public String getPrice() {
+    public String getPriceString() {
         return Double.toString(price);
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public String getQuantityString() {
@@ -44,11 +48,13 @@ public class Item {
     public void incrementQuantity()
     {
         quantity += 1;
+        price += price; //For when I show overall price in the cart
     }
 
     public void decreaseQuantity()
     {
         quantity -= 1;
+        price -= price;
     }
 
 }

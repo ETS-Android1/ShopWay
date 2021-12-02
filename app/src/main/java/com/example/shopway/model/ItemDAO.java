@@ -117,6 +117,8 @@ public class ItemDAO {
     public void addToCart(Item item)
     {
         Boolean exists = false;
+        Item newItem = new Item(item.getName(), item.getIconId(), item.getPrice());
+        newItem.setQuantity();
         ArrayList<Item> current = cartData.getValue();
         for(int i = 0; i < cartItems.size(); i++)
         {
@@ -128,7 +130,7 @@ public class ItemDAO {
         }
         if(exists == false)
         {
-            cartItems.add(item);
+            cartItems.add(newItem);
         }
         cartData.setValue(current);
     }

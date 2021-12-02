@@ -53,7 +53,6 @@ public class ShopItemsFragment extends Fragment implements ShopItemsAdapter.OnLi
     @Override
     public void onListItemClick(int clickedItemIndex) {
         Item newItem = adapter.items.get(clickedItemIndex);
-        newItem.setQuantity();
         viewModel.addCartItem(newItem);
         Snackbar addSnack = Snackbar.make(itemsRecyclerList,newItem.getName()
                 + " added to cart!", Snackbar.LENGTH_SHORT).setAction("Undo", view -> {

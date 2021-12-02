@@ -32,7 +32,7 @@ public class ShopItemsAdapter extends RecyclerView.Adapter<ShopItemsAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
             holder.name.setText(items.get(position).getName());
             holder.itemIcon.setImageResource(items.get(position).getIconId());
-            holder.price.setText(items.get(position).getPrice());
+            holder.price.setText(items.get(position).getPriceString());
 
     }
 
