@@ -6,4 +6,21 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_ShopList">Shop List</string>
     <string name="title_Cart">Shopping Cart</string>
+    <string name="sing_in">Sign In</string>
+    <string name="sms">smsms</string>
+    <string name="online_paper">Online discount newspaper</string>
+    <string name="call_deli">Call the deliverer</string>
+    <string name="empty_cart">Empty Cart</string>
+    <string name="checkout_string">CheckOut</string>
+    <string name="added_snack">" added to cart!"</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log Out</string>
+    <string name="products_string">Products</string>
+    <string name="order_string">Order</string>
+    <string name="profile">Profile</string>
+    <string name="remove_snack">" is now removed!"</string>
+    <string name="undo_snack">Undo</string>
+    <string name="thank_order">"Thank you for Ordering! Your order should come in "</string>
+    <string name="arrive_order">Your order should arrive now!</string>
+    <string name="total_cart">"Your total order price is: "</string>
 </resources>

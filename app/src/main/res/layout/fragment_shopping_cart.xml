@@ -26,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Empty Cart" />
+        android:text="@string/empty_cart" />
 
     <Button
         android:id="@+id/cashout_button"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="CheckOut" />
+        android:text="@string/checkout_string" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

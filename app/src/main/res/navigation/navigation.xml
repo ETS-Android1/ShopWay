@@ -30,14 +30,14 @@
     <fragment
         android:id="@+id/nav_items"
         android:name="com.example.shopway.ui.ShopItemsFragment"
-        android:label="Products"
+        android:label="@string/products_string"
         tools:layout="@layout/fragment_shop_items"
         />
 
     <fragment
         android:id="@+id/nav_order"
         android:name="com.example.shopway.ui.OrderStatusFragment"
-        android:label="Order"
+        android:label="@string/order_string"
         tools:layout="@layout/fragment_order_status"
         />
 

@@ -1,11 +1,14 @@
 package com.example.shopway.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,6 +29,7 @@ public class OrderStatusFragment extends Fragment {
     TextView orderTimer;
     CountDownTimer countDownTimer;
     int count = 0;
+    Button callButton;
 
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class OrderStatusFragment extends Fragment {
             public void onTick(long millisUntilFinished) {
 
                 String hour = timeFormatter( millisUntilFinished);
-              orderTimer.setText("Thank you for Ordering! Your order should come in " + hour);
+              orderTimer.setText(getString(R.string.thank_order) + hour);
                 if(count <random)
                 {
                     count++;
@@ -60,12 +64,24 @@ public class OrderStatusFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                orderTimer.setText("Your order should arrive now!");
+                orderTimer.setText(R.string.arrive_order);
             }
         };
         countDownTimer.start();
 
+        callButton = view.findViewById(R.id.call_guy);
+
+        callButton.setOnClickListener(v -> callGuy());
+
         return view;
+    }
+
+    public void callGuy()
+    {
+        String[] numbers = {"48501928", "18821458", "63151821", "84297305"};
+        int random = new Random().nextInt(4);
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel" + numbers[random])); //Not working check why if time.
+        startActivity(intent);
     }
 
     private String timeFormatter(long milliSeconds) {

@@ -65,9 +65,9 @@ public class ShopItemsFragment extends Fragment implements ShopItemsAdapter.OnLi
         newItem.setQuantity();
         viewModel.addCartItem(newItem);
         Snackbar addSnack = Snackbar.make(itemsRecyclerList,newItem.getName()
-                + " added to cart!", Snackbar.LENGTH_SHORT).setAction("Undo", view -> {
+                + getString(R.string.added_snack), Snackbar.LENGTH_SHORT).setAction(R.string.undo_snack, view -> {
             Snackbar undoSnack = Snackbar.make(itemsRecyclerList, newItem.getName()
-                    + " is now removed!", Snackbar.LENGTH_SHORT);
+                    + getString(R.string.remove_snack), Snackbar.LENGTH_SHORT);
             viewModel.removeCartItem(newItem);
             undoSnack.show();
         });

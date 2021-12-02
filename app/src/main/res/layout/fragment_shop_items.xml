@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:gravity="center"
-        android:text="Online discount newspaper" />
+        android:text="@string/online_paper" />
 
 
     <androidx.recyclerview.widget.RecyclerView

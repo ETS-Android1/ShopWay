@@ -53,7 +53,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
         emptyCart = view.findViewById(R.id.empty_cart_button);
         orderPrice = view.findViewById(R.id.total_price_order);
 
-        viewModel.getTotalPrice().observe(getViewLifecycleOwner(), aDouble -> orderPrice.setText("Your total order price is: " + viewModel.getTotalPrice().getValue()));
+        viewModel.getTotalPrice().observe(getViewLifecycleOwner(), aDouble -> orderPrice.setText(getString(R.string.total_cart) + viewModel.getTotalPrice().getValue()));
 
 
         emptyCart.setOnClickListener(v -> viewModel.emptyCart());

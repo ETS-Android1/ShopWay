@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShopWay</string>
+    <string name="nav_open">Отвори</string>
+    <string name="nav_close">Затвори</string>
+    <string name="title_ShopList">Лист с магазини</string>
+    <string name="title_Cart">Количка</string>
+    <string name="sing_in">Впиши се</string>
+    <string name="sms">Регистрирай се</string>
+    <string name="hello_blank_fragment">Здравей</string>
+    <string name="online_paper">Онлай списание</string>
+    <string name="call_deli">Обади се на доставчик</string>
+    <string name="empty_cart">Изпразни</string>
+    <string name="checkout_string">Плати</string>
+    <string name="added_snack">Добавено към количката</string>
+    <string name="settings">Настройки</string>
+    <string name="log_out">Отпиши се</string>
+    <string name="products_string">Продукти</string>
+    <string name="order_string">Поръчка</string>
+    <string name="profile">Профил</string>
+    <string name="remove_snack">" е изтрита "</string>
+    <string name="undo_snack">Върни</string>
+    <string name="thank_order">"Благодарим за вашата поръчка! Поръчката трябва да пристигне след "</string>
+    <string name="total_cart">"Стойноста на вашата поръчка е: "</string>
+    <string name="arrive_order">Вашата поръчка пристига сега!</string>
+</resources>
