@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.shopway.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemDAO {
 
@@ -14,6 +15,13 @@ public class ItemDAO {
 
     private ArrayList<Item> nettoItems;
     private ArrayList<Item> faktaItems;
+    private ArrayList<Item> bilkaItems;
+    private ArrayList<Item> lovbjergItems;
+    private ArrayList<Item> remaItems;
+    private ArrayList<Item> lidlItems;
+
+    private ArrayList<Item> cartItems;
+    private MutableLiveData<ArrayList<Item>> cartData;
 
     public static ItemDAO getInstance()
     {
@@ -26,7 +34,10 @@ public class ItemDAO {
 
     private ItemDAO()
     {
+        cartItems = new ArrayList<>();
         items = new MutableLiveData<>();
+        cartData = new MutableLiveData<>();
+
         nettoItems = new ArrayList<>();
         nettoItems.add(new Item("Beef", R.drawable.netto_beef, 35.00));
         nettoItems.add(new Item("Minced Beef", R.drawable.netto_minced_meat, 24.00));
@@ -45,6 +56,38 @@ public class ItemDAO {
         faktaItems.add(new Item("Blueberries", R.drawable.fakta_blueberries, 20.00));
         faktaItems.add(new Item("Coca Cola", R.drawable.fakta_soda, 15.00));
 
+        bilkaItems = new ArrayList<>();
+        bilkaItems.add(new Item("Chicken", R.drawable.bilka_chicken, 25.00));
+        bilkaItems.add(new Item("Clementines", R.drawable.bilka_clementines, 10.00));
+        bilkaItems.add(new Item("Potatoes", R.drawable.bilka_potatoes, 15.00));
+        bilkaItems.add(new Item("Champange", R.drawable.bilka_champange, 150.00));
+        bilkaItems.add(new Item("Shampoo", R.drawable.bilka_shampoo, 35.00));
+        bilkaItems.add(new Item("Soap", R.drawable.bilka_soap, 12.00));
+
+        lovbjergItems = new ArrayList<>();
+        lovbjergItems.add(new Item("Minced Beef", R.drawable.lov_minced_beef, 39.00));
+        lovbjergItems.add(new Item("Pork", R.drawable.lov_pork, 39.00));
+        lovbjergItems.add(new Item("Soya Milk", R.drawable.lov_soya, 19.00));
+        lovbjergItems.add(new Item("Yoghurt", R.drawable.lov_youghurt, 18.00));
+        lovbjergItems.add(new Item("Coffee", R.drawable.lov_coffee, 29.00));
+        lovbjergItems.add(new Item("Toilet Paper", R.drawable.lov_toilet_paper, 25.00));
+
+        remaItems = new ArrayList<>();
+        remaItems.add(new Item("Beef", R.drawable.rema_beef, 30.00));
+        remaItems.add(new Item("Ham", R.drawable.rema_ham, 10.00));
+        remaItems.add(new Item("Corn", R.drawable.rema_corn, 5.00));
+        remaItems.add(new Item("Cookies", R.drawable.rema_cookies, 13.00));
+        remaItems.add(new Item("Chips", R.drawable.rema_chips, 20.00));
+        remaItems.add(new Item("Cola", R.drawable.rema_soda, 12.00));
+
+        lidlItems = new ArrayList<>();
+        lidlItems.add(new Item("Minced Beef", R.drawable.lidl_minced_beef, 20.00));
+        lidlItems.add(new Item("Sausage", R.drawable.lidl_sossage, 25.00));
+        lidlItems.add(new Item("Bread", R.drawable.lidl_bread, 15.00));
+        lidlItems.add(new Item("Corny", R.drawable.lidl_corny, 10.00));
+        lidlItems.add(new Item("Ice Cream", R.drawable.lidl_ice_cream, 30.00));
+        lidlItems.add(new Item("Bluse", R.drawable.lidl_bluse, 89.00));
+
     }
 
     public LiveData<ArrayList<Item>> getItems(int code)
@@ -52,6 +95,18 @@ public class ItemDAO {
         if(code == 0)
         {
             items.setValue(nettoItems);
+        } else if(code == 1)
+        {
+            items.setValue(bilkaItems);
+        } else if(code == 2)
+        {
+            items.setValue(lovbjergItems);
+        } else if(code == 3)
+        {
+            items.setValue(remaItems);
+        } else if(code == 4)
+        {
+            items.setValue(lidlItems);
         } else if(code == 5)
         {
             items.setValue(faktaItems);
@@ -59,4 +114,14 @@ public class ItemDAO {
         return items;
     }
 
+    public void addToCart(Item item)
+    {
+        cartItems.add(item);
+    }
+
+    public LiveData<ArrayList<Item>> showCartItems()
+    {
+        cartData.setValue(cartItems);
+        return cartData;
+    }
 }

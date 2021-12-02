@@ -27,4 +27,19 @@ public class ItemRepository {
     {
         return itemDAO.getItems(code);
     }
+
+    public void addCartItem(Item item)
+    {
+        itemDAO.addToCart(item);
+    }
+
+    public void deleteCartItem(Item item)
+    {
+
+    }
+
+    public LiveData<ArrayList<Item>> showCartItems()
+    {
+        return itemDAO.showCartItems();
+    }
 }

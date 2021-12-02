@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.shopway.R;
 import com.example.shopway.model.Item;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,15 @@ public class ShopItemsFragment extends Fragment implements ShopItemsAdapter.OnLi
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
-
+        Item newItem = adapter.items.get(clickedItemIndex);
+        viewModel.addCartItem(newItem);
+        Snackbar addSnack = Snackbar.make(itemsRecyclerList,newItem.getName()
+                + " added to cart!", Snackbar.LENGTH_SHORT).setAction("Undo", view -> {
+            Snackbar undoSnack = Snackbar.make(itemsRecyclerList, newItem.getName()
+                    + " is now removed!", Snackbar.LENGTH_SHORT);
+            viewModel.removeCartItem(newItem);
+            undoSnack.show();
+        });
+        addSnack.show();
     }
 }

@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/nav_cart"
-        android:name="com.example.shopway.ui.ShoppingCart"
+        android:name="com.example.shopway.ui.CartFragment"
         android:label="@string/title_Cart"
         tools:layout="@layout/fragment_shopping_cart"
         />

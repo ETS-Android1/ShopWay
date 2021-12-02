@@ -20,4 +20,14 @@ public class ShopItemsViewModel extends ViewModel {
     {
         return repository.getItemsList(code);
     }
+
+    public void addCartItem(Item item)
+    {
+        repository.addCartItem(item);
+    }
+
+    public void removeCartItem(Item item)
+    {
+
+    }
 }
