@@ -36,6 +36,11 @@ public class CartViewModel extends AndroidViewModel {
         repository.emptyCart();
     }
 
+    public LiveData<Double> getTotalPrice()
+    {
+        return repository.getTotal();
+    }
+
 
 }
 

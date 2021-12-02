@@ -167,4 +167,20 @@ public class ItemDAO {
         }
     }
 
+    public LiveData<Double> getTotal()
+    {
+        MutableLiveData<Double> toSend = new MutableLiveData<>();
+        double total = 0;
+        ArrayList<Item> current = cartData.getValue();
+
+        for(int i = 0; i < current.size(); i++)
+        {
+            total += current.get(i).getPrice();
+        }
+        toSend.setValue(total);
+
+        return toSend;
+    }
+
+
 }

@@ -47,4 +47,9 @@ public class ItemRepository {
     {
       itemDAO.emptyCart();
     }
+
+    public LiveData<Double> getTotal()
+    {
+       return itemDAO.getTotal();
+    }
 }

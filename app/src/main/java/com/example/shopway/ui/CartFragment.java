@@ -3,6 +3,7 @@ package com.example.shopway.ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,8 +49,12 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
         itemsList.setLayoutManager(new LinearLayoutManager(this.getContext()));
         itemsList.setAdapter(adapter);
 
-        checkout = view.findViewById(R.id.cashout_button);
+        checkout = view.findViewById(R.id.cashout_button);  // Set Functionality
         emptyCart = view.findViewById(R.id.empty_cart_button);
+        orderPrice = view.findViewById(R.id.total_price_order);
+
+        viewModel.getTotalPrice().observe(getViewLifecycleOwner(), aDouble -> orderPrice.setText("Your total order price is: " + viewModel.getTotalPrice().getValue()));
+
 
         emptyCart.setOnClickListener(v -> viewModel.emptyCart());
 
