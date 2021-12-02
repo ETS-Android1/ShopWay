@@ -120,12 +120,12 @@ public class ItemDAO {
         Item newItem = new Item(item.getName(), item.getIconId(), item.getPrice());
         newItem.setQuantity();
         ArrayList<Item> current = cartData.getValue();
-        for(int i = 0; i < cartItems.size(); i++)
-        {
-            if(item.getIconId() == current.get(i).getIconId())
-            {
-                exists = true;
-                cartItems.get(i).incrementQuantity();
+        if(current != null)  {
+            for (int i = 0; i < current.size(); i++) {
+                if (item.getIconId() == current.get(i).getIconId()) {
+                    exists = true;
+                    cartItems.get(i).incrementQuantity();
+                }
             }
         }
         if(exists == false)
@@ -156,6 +156,14 @@ public class ItemDAO {
                     current.remove(i);
                 }
             }
+        }
+    }
+
+    public void emptyCart()
+    {
+        if(cartData != null) {
+            ArrayList<Item> current = new ArrayList<>();
+            cartData.setValue(current);
         }
     }
 

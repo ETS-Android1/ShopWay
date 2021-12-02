@@ -3,12 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.CartFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/cartRecycler"
         />
+    <TextView
+        android:id="@+id/total_price_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_gravity="right"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/empty_cart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Empty Cart" />
+
+    <Button
+        android:id="@+id/cashout_button"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="CheckOut" />
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

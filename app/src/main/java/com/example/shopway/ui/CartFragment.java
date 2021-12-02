@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.shopway.R;
 import com.example.shopway.model.Item;
@@ -20,10 +22,16 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
     private CartViewModel viewModel;
     CartAdapter adapter;
     RecyclerView itemsList;
+    TextView orderPrice;
+    Button checkout;
+    Button emptyCart;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
     }
 
@@ -39,6 +47,11 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
         itemsList.hasFixedSize();
         itemsList.setLayoutManager(new LinearLayoutManager(this.getContext()));
         itemsList.setAdapter(adapter);
+
+        checkout = view.findViewById(R.id.cashout_button);
+        emptyCart = view.findViewById(R.id.empty_cart_button);
+
+        emptyCart.setOnClickListener(v -> viewModel.emptyCart());
 
         return view;
     }

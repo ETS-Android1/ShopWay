@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.shopway.model.ItemRepository;
 import com.example.shopway.model.UserRepository;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -13,10 +14,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class MainActivityViewModel extends AndroidViewModel {
     private final UserRepository repository;
+    private final ItemRepository itemRepository;
 
     public MainActivityViewModel(Application application) {
         super(application);
         repository = UserRepository.getInstance(application);
+        itemRepository = ItemRepository.getInstance();
     }
 
     public void init()
@@ -33,4 +36,5 @@ public class MainActivityViewModel extends AndroidViewModel {
     {
         repository.signOut();
     }
+
 }
