@@ -28,4 +28,4 @@ Should have:
 Could have:
 * As a user I want to see the discount magazines for different shops. /Delivered
 * As a user I want to contact the deliverer. 
-* As a user I want to use the app in Bulgarian Language.
+* As a user I want to use the app in Bulgarian Language. /Delivered
