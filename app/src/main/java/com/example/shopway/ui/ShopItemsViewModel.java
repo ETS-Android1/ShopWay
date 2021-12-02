@@ -1,5 +1,8 @@
 package com.example.shopway.ui;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -8,12 +11,13 @@ import com.example.shopway.model.ItemRepository;
 
 import java.util.ArrayList;
 
-public class ShopItemsViewModel extends ViewModel {
+public class ShopItemsViewModel extends AndroidViewModel {
     private ItemRepository repository;
 
-    public ShopItemsViewModel()
+    public ShopItemsViewModel(Application application)
     {
-        repository = ItemRepository.getInstance();
+        super(application);
+        repository = ItemRepository.getInstance(application.getApplicationContext());
     }
 
     public LiveData<ArrayList<Item>> getShopItems(int code)

@@ -18,7 +18,7 @@ public class CartViewModel extends AndroidViewModel {
 
     {
         super(app);
-        repository = ItemRepository.getInstance();
+        repository = ItemRepository.getInstance(app.getApplicationContext());
     }
 
     public LiveData<ArrayList<Item>> getCartItems()

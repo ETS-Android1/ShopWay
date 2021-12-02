@@ -1,5 +1,7 @@
 package com.example.shopway.model;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -12,26 +14,28 @@ public class ShopDAO {
 
     private MutableLiveData<ArrayList<Shop>> shops;
     private static ShopDAO instance;
+    Context context;
 
-    public static ShopDAO getInstance()
+    public static ShopDAO getInstance(Context context)
     {
         if(instance == null)
         {
-            instance = new ShopDAO();
+            instance = new ShopDAO(context);
         }
         return instance;
     }
 
-    private ShopDAO()
+    private ShopDAO(Context context)
     {
+        this.context = context;
         shops = new MutableLiveData<>();
         ArrayList<Shop> newList = new ArrayList<>();
-        newList.add(new Shop("Netto", R.drawable.s_netto, "Horsens"));
-        newList.add(new Shop("Bilka", R.drawable.s_bilka, "Horsens"));
-        newList.add(new Shop("Løvbjerg", R.drawable.s_lovbjerg, "Horsens"));
-        newList.add(new Shop("Rema1000", R.drawable.s_rema, "Horsens"));
-        newList.add(new Shop("Lidl", R.drawable.s_lidl, "Horsens"));
-        newList.add(new Shop("Fakta", R.drawable.s_fakta, "Horsens"));
+        newList.add(new Shop(context.getString(R.string.netto_string), R.drawable.s_netto, context.getString(R.string.horsens_string)));
+        newList.add(new Shop(context.getString(R.string.bilka_string), R.drawable.s_bilka, context.getString(R.string.horsens_string)));
+        newList.add(new Shop(context.getString(R.string.lov_string), R.drawable.s_lovbjerg, context.getString(R.string.horsens_string)));
+        newList.add(new Shop(context.getString(R.string.rema_string), R.drawable.s_rema, context.getString(R.string.horsens_string)));
+        newList.add(new Shop(context.getString(R.string.lidl_string), R.drawable.s_lidl, context.getString(R.string.horsens_string)));
+        newList.add(new Shop(context.getString(R.string.fakta_string), R.drawable.s_fakta, context.getString(R.string.horsens_string)));
 
         shops.setValue(newList);
     }

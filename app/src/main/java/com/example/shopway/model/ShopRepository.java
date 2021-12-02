@@ -1,5 +1,7 @@
 package com.example.shopway.model;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 
 import java.util.ArrayList;
@@ -10,18 +12,18 @@ public class ShopRepository {
     private ShopDAO shopDAO;
     private static ShopRepository instance;
 
-    public static ShopRepository getInstance()
+    public static ShopRepository getInstance(Context context)
     {
         if(instance == null)
         {
-            instance = new ShopRepository();
+            instance = new ShopRepository(context);
         }
         return instance;
     }
 
-    private ShopRepository()
+    private ShopRepository(Context context)
     {
-        shopDAO = ShopDAO.getInstance();
+        shopDAO = ShopDAO.getInstance(context);
     }
 
     public LiveData<ArrayList<Shop>> getShopList()

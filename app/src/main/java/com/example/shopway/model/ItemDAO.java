@@ -1,5 +1,7 @@
 package com.example.shopway.model;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -23,70 +25,73 @@ public class ItemDAO {
     private ArrayList<Item> cartItems;
     private MutableLiveData<ArrayList<Item>> cartData;
 
-    public static ItemDAO getInstance()
+    Context context;
+
+    public static ItemDAO getInstance(Context context)
     {
         if(instance == null)
         {
-            instance = new ItemDAO();
+            instance = new ItemDAO(context);
         }
         return instance;
     }
 
-    private ItemDAO()
+    private ItemDAO(Context context)
     {
+        this.context = context;
         cartItems = new ArrayList<>();
         items = new MutableLiveData<>();
         cartData = new MutableLiveData<>();
 
         nettoItems = new ArrayList<>();
-        nettoItems.add(new Item("Beef", R.drawable.netto_beef, 35.00));
-        nettoItems.add(new Item("Minced Beef", R.drawable.netto_minced_meat, 24.00));
-        nettoItems.add(new Item("Mango", R.drawable.netto_mango, 8.00));
-        nettoItems.add(new Item("Potatoes", R.drawable.netto_potatoes, 15.00));
-        nettoItems.add(new Item("Shrooms", R.drawable.netto_shrooms, 12.00));
-        nettoItems.add(new Item("Gin Tonic", R.drawable.netto_gin_tonic, 20.00));
-        nettoItems.add(new Item("Juice", R.drawable.netto_juice, 10.00));
-        nettoItems.add(new Item("Towels", R.drawable.netto_towels, 99.00));
-        nettoItems.add(new Item("Kitchen Scale", R.drawable.netto_scale, 79.00));
+        nettoItems.add(new Item(context.getString(R.string.beef_string), R.drawable.netto_beef, 35.00));
+        nettoItems.add(new Item(context.getString(R.string.mBeef_string), R.drawable.netto_minced_meat, 24.00));
+        nettoItems.add(new Item(context.getString(R.string.mango_string), R.drawable.netto_mango, 8.00));
+        nettoItems.add(new Item(context.getString(R.string.potato_string), R.drawable.netto_potatoes, 15.00));
+        nettoItems.add(new Item(context.getString(R.string.shroom_string), R.drawable.netto_shrooms, 12.00));
+        nettoItems.add(new Item(context.getString(R.string.gin_string), R.drawable.netto_gin_tonic, 20.00));
+        nettoItems.add(new Item(context.getString(R.string.juice_string), R.drawable.netto_juice, 10.00));
+        nettoItems.add(new Item(context.getString(R.string.tow_string), R.drawable.netto_towels, 99.00));
+        nettoItems.add(new Item(context.getString(R.string.scale_string), R.drawable.netto_scale, 79.00));
 
         faktaItems = new ArrayList<>();
-        faktaItems.add(new Item("Minced Beef", R.drawable.fakta_minced_meat, 20.00));
-        faktaItems.add(new Item("Kotlett", R.drawable.fakta_pork, 29.00));
-        faktaItems.add(new Item("Pears", R.drawable.fakta_pears, 5.00));
-        faktaItems.add(new Item("Blueberries", R.drawable.fakta_blueberries, 20.00));
-        faktaItems.add(new Item("Coca Cola", R.drawable.fakta_soda, 15.00));
+        faktaItems.add(new Item(context.getString(R.string.mBeef_string), R.drawable.fakta_minced_meat, 20.00));
+        faktaItems.add(new Item(context.getString(R.string.cot_string), R.drawable.fakta_pork, 29.00));
+        faktaItems.add(new Item(context.getString(R.string.pear_string), R.drawable.fakta_pears, 5.00));
+        faktaItems.add(new Item(context.getString(R.string.blueberies_string), R.drawable.fakta_blueberries, 20.00));
+        faktaItems.add(new Item(context.getString(R.string.soda_string), R.drawable.fakta_soda, 15.00));
 
         bilkaItems = new ArrayList<>();
-        bilkaItems.add(new Item("Chicken", R.drawable.bilka_chicken, 25.00));
-        bilkaItems.add(new Item("Clementines", R.drawable.bilka_clementines, 10.00));
-        bilkaItems.add(new Item("Potatoes", R.drawable.bilka_potatoes, 15.00));
-        bilkaItems.add(new Item("Champange", R.drawable.bilka_champange, 150.00));
-        bilkaItems.add(new Item("Shampoo", R.drawable.bilka_shampoo, 35.00));
-        bilkaItems.add(new Item("Soap", R.drawable.bilka_soap, 12.00));
+        bilkaItems.add(new Item(context.getString(R.string.chick_string), R.drawable.bilka_chicken, 25.00));
+        bilkaItems.add(new Item(context.getString(R.string.clem_string), R.drawable.bilka_clementines, 10.00));
+        bilkaItems.add(new Item(context.getString(R.string.potato_string), R.drawable.bilka_potatoes, 15.00));
+        bilkaItems.add(new Item(context.getString(R.string.champ_string), R.drawable.bilka_champange, 150.00));
+        bilkaItems.add(new Item(context.getString(R.string.shampo_string), R.drawable.bilka_shampoo, 35.00));
+        bilkaItems.add(new Item(context.getString(R.string.soap_string), R.drawable.bilka_soap, 12.00));
 
         lovbjergItems = new ArrayList<>();
-        lovbjergItems.add(new Item("Minced Beef", R.drawable.lov_minced_beef, 39.00));
-        lovbjergItems.add(new Item("Pork", R.drawable.lov_pork, 39.00));
-        lovbjergItems.add(new Item("Soya Milk", R.drawable.lov_soya, 19.00));
-        lovbjergItems.add(new Item("Yoghurt", R.drawable.lov_youghurt, 18.00));
-        lovbjergItems.add(new Item("Coffee", R.drawable.lov_coffee, 29.00));
-        lovbjergItems.add(new Item("Toilet Paper", R.drawable.lov_toilet_paper, 25.00));
+        lovbjergItems.add(new Item(context.getString(R.string.mBeef_string), R.drawable.lov_minced_beef, 39.00));
+        lovbjergItems.add(new Item(context.getString(R.string.pork_string), R.drawable.lov_pork, 39.00));
+        lovbjergItems.add(new Item(context.getString(R.string.soya_string), R.drawable.lov_soya, 19.00));
+        lovbjergItems.add(new Item(context.getString(R.string.yoghurt_string), R.drawable.lov_youghurt, 18.00));
+        lovbjergItems.add(new Item(context.getString(R.string.coffee_string), R.drawable.lov_coffee, 29.00));
+        lovbjergItems.add(new Item(context.getString(R.string.toilet_string), R.drawable.lov_toilet_paper, 25.00));
 
         remaItems = new ArrayList<>();
-        remaItems.add(new Item("Beef", R.drawable.rema_beef, 30.00));
-        remaItems.add(new Item("Ham", R.drawable.rema_ham, 10.00));
-        remaItems.add(new Item("Corn", R.drawable.rema_corn, 5.00));
-        remaItems.add(new Item("Cookies", R.drawable.rema_cookies, 13.00));
-        remaItems.add(new Item("Chips", R.drawable.rema_chips, 20.00));
-        remaItems.add(new Item("Cola", R.drawable.rema_soda, 12.00));
+        remaItems.add(new Item(context.getString(R.string.beef_string), R.drawable.rema_beef, 30.00));
+        remaItems.add(new Item(context.getString(R.string.ham_string), R.drawable.rema_ham, 10.00));
+        remaItems.add(new Item(context.getString(R.string.corn_string), R.drawable.rema_corn, 5.00));
+        remaItems.add(new Item(context.getString(R.string.cookie_string), R.drawable.rema_cookies, 13.00));
+        remaItems.add(new Item(context.getString(R.string.chips_string), R.drawable.rema_chips, 20.00));
+        remaItems.add(new Item(context.getString(R.string.soda_string), R.drawable.rema_soda, 12.00));
 
         lidlItems = new ArrayList<>();
-        lidlItems.add(new Item("Minced Beef", R.drawable.lidl_minced_beef, 20.00));
-        lidlItems.add(new Item("Sausage", R.drawable.lidl_sossage, 25.00));
-        lidlItems.add(new Item("Bread", R.drawable.lidl_bread, 15.00));
-        lidlItems.add(new Item("Corny", R.drawable.lidl_corny, 10.00));
-        lidlItems.add(new Item("Ice Cream", R.drawable.lidl_ice_cream, 30.00));
-        lidlItems.add(new Item("Bluse", R.drawable.lidl_bluse, 89.00));
+        lidlItems.add(new Item(context.getString(R.string.mBeef_string), R.drawable.lidl_minced_beef, 20.00));
+        lidlItems.add(new Item(context.getString(R.string.sousage_string), R.drawable.lidl_sossage, 25.00));
+        lidlItems.add(new Item(context.getString(R.string.bread_string), R.drawable.lidl_bread, 15.00));
+        lidlItems.add(new Item(context.getString(R.string.corny_string), R.drawable.lidl_corny, 10.00));
+        lidlItems.add(new Item(context.getString(R.string.ice_string), R.drawable.lidl_ice_cream, 30.00));
+        lidlItems.add(new Item(context.getString(R.string.bluse_string), R.drawable.lidl_bluse, 89.00));
 
     }
 

@@ -19,7 +19,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     public MainActivityViewModel(Application application) {
         super(application);
         repository = UserRepository.getInstance(application);
-        itemRepository = ItemRepository.getInstance();
+        itemRepository = ItemRepository.getInstance(application.getApplicationContext());
     }
 
     public void init()

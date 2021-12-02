@@ -33,7 +33,7 @@ public class Item {
     }
 
     public String getQuantityString() {
-        return "Quantity: " + quantity;
+        return "" + quantity;
     }
 
     public int getQuantity()

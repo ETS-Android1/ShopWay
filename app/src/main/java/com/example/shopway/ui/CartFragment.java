@@ -41,7 +41,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnListItemClic
                              Bundle savedInstanceState) {
 
         viewModel = new ViewModelProvider(this).get(CartViewModel.class);
-        adapter = new CartAdapter(this);
+        adapter = new CartAdapter(getContext(),this);
         viewModel.getCartItems().observe(getViewLifecycleOwner(), adapter::updateData);
         View view = inflater.inflate(R.layout.fragment_shopping_cart, container, false);
         itemsList = view.findViewById(R.id.cartRecycler);

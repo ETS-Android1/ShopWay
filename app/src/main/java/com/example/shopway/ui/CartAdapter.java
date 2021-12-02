@@ -1,5 +1,6 @@
 package com.example.shopway.ui;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,11 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     final private OnListItemClickListener onListItemClickListener;
     ArrayList<Item> items;
+    Context context;
 
-    public CartAdapter(OnListItemClickListener onListItemClickListener) {
+    public CartAdapter(Context context, OnListItemClickListener onListItemClickListener) {
         this.onListItemClickListener = onListItemClickListener;
+        this.context = context;
     }
 
     public void updateData(ArrayList<Item> items)
@@ -38,7 +41,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(items.get(position).getName());
-        holder.quantity.setText(items.get(position).getQuantityString());
+        holder.quantity.setText(context.getString(R.string.quantity_string) + items.get(position).getQuantityString());
 
     }
 
