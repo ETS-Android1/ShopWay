@@ -54,7 +54,7 @@ public class OrderStatusFragment extends Fragment {
                 if(count <random)
                 {
                     count++;
-                    orderProgress.incrementProgressBy(count);
+                    orderProgress.incrementProgressBy(count); //Progress bar not working properly
 
                 }
 
@@ -70,7 +70,6 @@ public class OrderStatusFragment extends Fragment {
         countDownTimer.start();
 
         callButton = view.findViewById(R.id.call_guy);
-
         callButton.setOnClickListener(v -> callGuy());
 
         return view;
@@ -80,7 +79,8 @@ public class OrderStatusFragment extends Fragment {
     {
         String[] numbers = {"48501928", "18821458", "63151821", "84297305"};
         int random = new Random().nextInt(4);
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel" + numbers[random])); //Not working check why if time.
+        Uri toCall = Uri.parse(numbers[random]);
+        Intent intent = new Intent(Intent.ACTION_DIAL, toCall); //Not working check why if time.
         startActivity(intent);
     }
 

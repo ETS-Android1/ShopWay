@@ -63,4 +63,6 @@
     <string name="bluse_string">Блуза</string>
     <string name="mango_string">Манго</string>
     <string name="soda_string">Кола</string>
+    <string name="address_string">Address</string>
+    <string name="post_string">Post Code</string>
 </resources>

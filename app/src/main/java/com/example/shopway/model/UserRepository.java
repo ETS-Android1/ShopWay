@@ -6,11 +6,16 @@ import androidx.lifecycle.LiveData;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UserRepository {
     private final UserLiveData currentUser;
     private final Application application;
     private static UserRepository instance;
+
+    private DatabaseReference reference;
+    private UserSettingsLiveData settingsLiveData;
 
     private UserRepository(Application app)
     {
@@ -27,6 +32,12 @@ public class UserRepository {
         return instance;
     }
 
+    public void init(String userId)
+    {
+        reference = FirebaseDatabase.getInstance().getReference().child("settings").child(userId);
+        settingsLiveData = new UserSettingsLiveData(reference);
+    }
+
     public LiveData<FirebaseUser> getCurrentUser()
     {
         return currentUser;
@@ -36,4 +47,16 @@ public class UserRepository {
     {
         AuthUI.getInstance().signOut(application.getApplicationContext());
     }
+
+    public void saveSettings(UserSettings settings)
+    {
+        reference.setValue(new UserSettings(settings.getName(), settings.getAge(),
+                settings.getAddress(), settings.getCity(), settings.getPostCode()));
+    }
+
+    public UserSettingsLiveData getSettingsLiveData()
+    {
+        return settingsLiveData;
+    }
+
 }

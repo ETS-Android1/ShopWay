@@ -63,4 +63,9 @@
     <string name="corny_string">Corny</string>
     <string name="ice_string">Ice Cream</string>
     <string name="bluse_string">Bluse</string>
+    <string name="name_string">Name</string>
+    <string name="age_string">Age</string>
+    <string name="address_string">Address</string>
+    <string name="city_string">City</string>
+    <string name="post_string">Post Code</string>
 </resources>
