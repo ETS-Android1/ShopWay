@@ -26,9 +26,9 @@ public class SettingsViewModel extends AndroidViewModel {
         repository.init(userId);
     }
 
-    public void saveSettings(UserSettings settings)
+    public void saveSettings(String sName, String sAge, String sAddress, String sCity, String sPost)
     {
-        repository.saveSettings(settings);
+        repository.saveSettings(sName, sAge, sAddress, sCity, sPost);
     }
 
     public LiveData<UserSettings> getSettings()

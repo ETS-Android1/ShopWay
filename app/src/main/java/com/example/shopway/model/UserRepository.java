@@ -34,7 +34,7 @@ public class UserRepository {
 
     public void init(String userId)
     {
-        reference = FirebaseDatabase.getInstance().getReference().child("settings").child(userId);
+        reference = FirebaseDatabase.getInstance().getReference().child("shopway-4ff4f-default-rtdb").child(userId);
         settingsLiveData = new UserSettingsLiveData(reference);
     }
 
@@ -48,10 +48,9 @@ public class UserRepository {
         AuthUI.getInstance().signOut(application.getApplicationContext());
     }
 
-    public void saveSettings(UserSettings settings)
+    public void saveSettings(String sName, String sAge, String sAddress, String sCity, String sPost)
     {
-        reference.setValue(new UserSettings(settings.getName(), settings.getAge(),
-                settings.getAddress(), settings.getCity(), settings.getPostCode()));
+        reference.setValue(new UserSettings(sName, sAge, sAddress, sCity, sPost));
     }
 
     public UserSettingsLiveData getSettingsLiveData()

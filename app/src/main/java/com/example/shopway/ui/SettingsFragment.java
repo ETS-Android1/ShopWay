@@ -73,10 +73,9 @@ public class SettingsFragment extends Fragment {
 
 
         saveSettings.setOnClickListener(v -> {
-            UserSettings settings = new UserSettings(nameField.getText().toString(),
+            saveUserSettings(nameField.getText().toString(),
                     ageField.getText().toString(), addressField.getText().toString(),
                     cityField.getText().toString(), postField.getText().toString());
-            saveUserSettings(settings);
 
         });
 
@@ -85,8 +84,8 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
-    private void saveUserSettings(UserSettings settings)
+    private void saveUserSettings(String sName, String sAge, String sAddress, String sCity, String sPost)
     {
-        viewModel.saveSettings(settings);
+        viewModel.saveSettings(sName, sAge, sAddress, sCity, sPost);
     }
 }
