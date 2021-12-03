@@ -24,9 +24,9 @@
     <Button
         android:id="@+id/remove_cart"
         android:layout_width="48dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:textSize="20dp"
-        android:background="@color/red"
+        android:backgroundTint="@color/red"
         android:layout_gravity="left"
         android:text="-" />
 
