@@ -25,6 +25,7 @@ Should have:
 * As a user I want to be able to log in the system. /Delivered
 * As a user I want to be able to log out of the system. /Delivered
 * As a user I want to see how much time there is until delivery. /Delivered
+* As a user I want to store and see some information about myself. /Delivered
 
 Could have:
 * As a user I want to see the discount magazines for different shops. /Delivered
